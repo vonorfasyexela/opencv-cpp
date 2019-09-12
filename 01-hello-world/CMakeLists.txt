@@ -21,8 +21,10 @@ add_compile_options( -Wall )
 # add_definitions( -DEXERCISE )
 
 if ( APPLE )
-    # add_compile_options( -ObjC )
+# add_compile_options( -ObjC )
 endif ( APPLE )    
+
+message( "System name: " ${CMAKE_SYSTEM_NAME} )
 
 ##############################################################################
 
@@ -91,3 +93,4 @@ if ( USE_OPENCV )
     target_compile_options( ${PROJECT_NAME} PRIVATE ${OPENCV_CFLAGS} )
     target_link_libraries( ${PROJECT_NAME} ${OPENCV_LIBRARIES} )   
 endif ( USE_OPENCV )
+
