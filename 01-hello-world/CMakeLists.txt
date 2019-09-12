@@ -24,7 +24,7 @@ if ( APPLE )
 # add_compile_options( -ObjC )
 endif ( APPLE )    
 
-message( "System name: " ${CMAKE_SYSTEM_NAME} )
+message( "Platform: " ${CMAKE_CXX_PLATFORM_ID} )
 
 ##############################################################################
 
