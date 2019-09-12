@@ -24,7 +24,6 @@ if ( APPLE )
 # add_compile_options( -ObjC )
 endif ( APPLE )    
 
-message( "Platform: " ${CMAKE_CXX_PLATFORM_ID} )
 
 ##############################################################################
 
@@ -87,7 +86,11 @@ endif ( USE_GTK3 )
 
 if ( USE_OPENCV )
     find_package( PkgConfig REQUIRED )
-    pkg_search_module( OPENCV REQUIRED opencv )
+    if (${CMAKE_CXX_PLATFORM_ID} STREQUAL "Linux")
+        pkg_search_module( OPENCV REQUIRED opencv )
+    elseif(${CMAKE_CXX_PLATFORM_ID} STREQUAL "MinGW")
+        pkg_search_module( OPENCV REQUIRED opencv4 )
+    endif(${CMAKE_CXX_PLATFORM_ID} STREQUAL "Linux")
     include_directories( ${OPENCV_INCLUDE_DIRS} )
     link_directories( ${OPENCV_LIBRARY_DIRS} ) 
     target_compile_options( ${PROJECT_NAME} PRIVATE ${OPENCV_CFLAGS} )
