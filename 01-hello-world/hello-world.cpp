@@ -13,11 +13,18 @@ int main(int argc, char const *argv[])
     cout << "\tSubminor version : " << CV_SUBMINOR_VERSION << endl;
     
     // getting run time version
-    cout << "Run-time" << endl;
-    cout << "\tOpenCV version   : " << getVersionString() << endl;
-    cout << "\tMajor version    : " << getVersionMajor() << endl;
-    cout << "\tMinor version    : " << getVersionMinor() << endl;
-    cout << "\tRevision version : " << getVersionRevision() << endl;   
+
+    string version = CV_VERSION;
+    // cout << version.compare("3.4.2") >=  << endl;
+    if (version.compare("3.4.2") >= 0)
+    {
+        cout << "Run-time" << endl;
+        cout << "\tOpenCV version   : " << getVersionString() << endl;
+        cout << "\tMajor version    : " << getVersionMajor() << endl;
+        cout << "\tMinor version    : " << getVersionMinor() << endl;
+        cout << "\tRevision version : " << getVersionRevision() << endl;   
+    }
+
 
     return 0;
 }
