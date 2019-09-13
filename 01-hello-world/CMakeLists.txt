@@ -15,7 +15,8 @@ option( USE_OPENCV            "Want OpenCV?"            ON  )
 
 add_compile_options( -g )
 add_compile_options( -Wall )
-# add_compile_options( -std=c11 )
+# for g++ 5.4.0
+add_compile_options( -std=c++11 )
 
 # if you want to provide definitions to the compiler
 # add_definitions( -DEXERCISE )
