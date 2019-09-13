@@ -1,6 +1,12 @@
 # Digging OpenCV
+Tested development platforms:
+* msys2
+* Ubuntu 16.04
+* Ubuntu 18.04
 
 ## 01. Hello World
-To compile under msys2 environment use this generator:
+To build use these commands:
 
-    cmake -g "Unix Makefiles" ..
+    mkdir build && cd build
+    cmake -g "Unix Makefiles" -DFULL_OPENCV=OFF ..
+    make VERBOSE=1

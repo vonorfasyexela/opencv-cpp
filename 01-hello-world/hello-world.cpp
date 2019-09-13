@@ -1,4 +1,9 @@
+#ifdef FULL_OPENCV
 #include <opencv2/opencv.hpp>
+#else
+#include <opencv2/core.hpp>
+#include <iostream>
+#endif
 #include <regex>
 
 using namespace std;

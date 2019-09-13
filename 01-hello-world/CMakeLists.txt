@@ -25,6 +25,10 @@ if ( APPLE )
 # add_compile_options( -ObjC )
 endif ( APPLE )    
 
+option(FULL_OPENCV "Select full opencv.hpp header" OFF)
+if (FULL_OPENCV)
+    add_definitions(-DFULL_OPENCV)
+endif(FULL_OPENCV)
 
 ##############################################################################
 
