@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+#include <regex>
 
 using namespace std;
 using namespace cv;
@@ -28,6 +29,12 @@ int main(int argc, char const *argv[])
 #else
     cout << "\tNo such functions in this version of library" << endl;
 #endif
+
+    // getting build information
+    cout << "Build information" << endl;
+    string build_information = getBuildInformation();
+    // beautify the string a bit using regexp
+    cout << regex_replace(build_information, regex("\n"), "\n\t") << endl;
 
     return 0;
 }
