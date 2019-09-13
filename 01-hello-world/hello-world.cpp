@@ -1,3 +1,4 @@
+// the flag to estimate the size difference of resulting binary
 #ifdef FULL_OPENCV
 #include <opencv2/opencv.hpp>
 #else
