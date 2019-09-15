@@ -5,6 +5,13 @@ Tested development platforms:
 * Ubuntu 18.04 (OpenCV 3.2.0)
 
 ## 01. Hello World
+
+What illustrates:
+* different methods to plug the library
+* getting compile-time version
+* getting run-time version (where possible)
+* printing build information
+
 To build use these commands:
 
     mkdir build && cd build
