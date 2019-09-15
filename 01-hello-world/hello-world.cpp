@@ -2,9 +2,13 @@
 #ifdef FULL_OPENCV
 #include <opencv2/opencv.hpp>
 #else
+#if (CV_MAJOR_VERSION < 3)
+#include <opencv2/core/core.hpp>
+#else
 #include <opencv2/core.hpp>
+#endif // (CV_MAJOR_VERSION < 3)
 #include <iostream>
-#endif
+#endif // FULL_OPENCV
 #include <regex>
 
 using namespace std;
