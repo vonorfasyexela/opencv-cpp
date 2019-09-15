@@ -30,6 +30,8 @@ if (FULL_OPENCV)
     add_definitions(-DFULL_OPENCV)
 endif(FULL_OPENCV)
 
+message("Platform: " ${CMAKE_CXX_PLATFORM_ID})
+
 ##############################################################################
 
 add_executable( ${PROJECT_NAME} ${SOURCE_FILES} )
@@ -93,9 +95,9 @@ if ( USE_OPENCV )
     find_package( PkgConfig REQUIRED )
     if (${CMAKE_CXX_PLATFORM_ID} STREQUAL "Linux")
         pkg_search_module( OPENCV REQUIRED opencv )
-    elseif(${CMAKE_CXX_PLATFORM_ID} STREQUAL "MinGW")
+    else()
         pkg_search_module( OPENCV REQUIRED opencv4 )
-    endif(${CMAKE_CXX_PLATFORM_ID} STREQUAL "Linux")
+    endif()
     include_directories( ${OPENCV_INCLUDE_DIRS} )
     link_directories( ${OPENCV_LIBRARY_DIRS} ) 
     target_compile_options( ${PROJECT_NAME} PRIVATE ${OPENCV_CFLAGS} )
