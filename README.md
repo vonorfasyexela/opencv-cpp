@@ -8,5 +8,5 @@ Tested development platforms:
 To build use these commands:
 
     mkdir build && cd build
-    cmake -g "Unix Makefiles" -DFULL_OPENCV=OFF ..
+    cmake -G "Unix Makefiles" -DFULL_OPENCV=OFF ..
     make VERBOSE=1
