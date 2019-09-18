@@ -12,6 +12,7 @@
 #include <regex>
 
 using namespace std;
+// all OpenCV classes and functions are in this namespace
 using namespace cv;
 
 int main(int argc, char const *argv[])
