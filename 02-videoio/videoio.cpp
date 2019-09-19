@@ -66,7 +66,9 @@ int main(int argc, char const *argv[])
     cout << "We are working through " << cap.getBackendName() << " as a backend" << endl;
 
     // start playing
-    cout << "Start playing" << endl << "Press any key to terminate" << endl;
+    cout << "Start playing" << endl;
+    cout << "Press any key to terminate" << endl;
+    
     Mat frame;
     while (42)
     {
