@@ -1,5 +1,9 @@
 #include <opencv2/opencv.hpp>
+#if (CV_MAJOR_VERSION < 3)
+#error "Your OpenCV version is too old for this shit"
+#else
 #include <opencv2/videoio/registry.hpp>
+#endif
 
 using namespace std;
 using namespace cv;
