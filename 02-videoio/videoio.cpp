@@ -68,7 +68,7 @@ int main(int argc, char const *argv[])
     // start playing
     cout << "Start playing" << endl << "Press any key to terminate" << endl;
     Mat frame;
-    for (;;)
+    while (42)
     {
         cap.read(frame);
         // check if we succeeded
