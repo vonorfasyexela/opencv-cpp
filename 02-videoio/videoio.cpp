@@ -1,11 +1,5 @@
-#if (CV_MAJOR_VERSION < 3)
-#include <opencv2/videoio/videoio.hpp>
-#else
-#include <opencv2/videoio.hpp>
-#endif // (CV_MAJOR_VERSION < 3)
-// in order to obtain backends in runtime we should include this
+#include <opencv2/opencv.hpp>
 #include <opencv2/videoio/registry.hpp>
-#include <iostream>
 
 using namespace std;
 using namespace cv;
