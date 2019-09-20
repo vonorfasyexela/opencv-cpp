@@ -25,37 +25,44 @@ int main(int argc, char const *argv[])
         cout << "\t" << videoio_registry::getBackendName(backends.at(i)) << endl;
     } 
 
-    // determine stream backends
-    vector<VideoCaptureAPIs> stream_backends = videoio_registry::getStreamBackends();
-    cout << "Stream backends:" << endl;
-    for (size_t i = 0; i < stream_backends.size(); i++)
-    {
-        cout << "\t" << videoio_registry::getBackendName(stream_backends.at(i)) << endl;
-    } 
-
-    // determine camera backends
-    vector<VideoCaptureAPIs> camera_backends = videoio_registry::getCameraBackends();
-    cout << "Camera backends:" << endl;
-    for (size_t i = 0; i < camera_backends.size(); i++)
-    {
-        cout << "\t" << videoio_registry::getBackendName(camera_backends.at(i)) << endl;
-    } 
-
+    // now the user should enter what he wants to open
     cout << "Enter the input (URL for the stream, the index for the camera): ";
     string input;
     cin >> input;
 
-    // open input
+    // here we decide what's the type of the input
     VideoCapture cap;
     if (is_number(input))
     {
-        cout << "We are opening camera " << stoi(input) << endl;
-        cap.open(stoi(input), CAP_ANY);
+        cout << "Type of the input is camera" << endl;
+        // determine camera backends
+        vector<VideoCaptureAPIs> camera_backends = videoio_registry::getCameraBackends();
+        cout << "Available camera backends:" << endl;
+        for (size_t i = 0; i < camera_backends.size(); i++)
+        {
+            cout << "\t" << videoio_registry::getBackendName(camera_backends.at(i)) << endl;
+        } 
     }
     else
     {
+        cout << "Type of the input is stream" << endl;
+        // determine stream backends
+        vector<VideoCaptureAPIs> stream_backends = videoio_registry::getStreamBackends();
+        // add CAP_ANY backend to the beginning
+        stream_backends.insert(stream_backends.begin(), CAP_ANY);
+        cout << "Available stream backends:" << endl;
+        for (size_t i = 0; i < stream_backends.size(); i++)
+        {
+            cout << "\t" << i << " - " << videoio_registry::getBackendName(stream_backends.at(i)) << endl;
+        } 
+        
+        cout << "Select the number: ";
+        string sel_backend_index_str;
+        cin >> sel_backend_index_str;
+
+        int sel_backend_index = stoi(sel_backend_index_str);
         cout << "We are opening stream " << input << endl;
-        cap.open(input, CAP_ANY);
+        cap.open(input, stream_backends.at(sel_backend_index));
     }
 
     if (!cap.isOpened()) 
