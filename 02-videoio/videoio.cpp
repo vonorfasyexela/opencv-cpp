@@ -50,12 +50,12 @@ int main(int argc, char const *argv[])
     if (is_number(input))
     {
         cout << "We are opening camera " << stoi(input) << endl;
-        cap.open(stoi(input));
+        cap.open(stoi(input), CAP_ANY);
     }
     else
     {
         cout << "We are opening stream " << input << endl;
-        cap.open(input);
+        cap.open(input, CAP_ANY);
     }
 
     if (!cap.isOpened()) 
@@ -64,6 +64,9 @@ int main(int argc, char const *argv[])
         return -1;
     }
     cout << "We are working through " << cap.getBackendName() << " as a backend" << endl;
+
+    // getting properties
+    cout << "Video: " << cap.get(CAP_PROP_FRAME_WIDTH) << "x" << cap.get(CAP_PROP_FRAME_HEIGHT) << "@" << cap.get(CAP_PROP_FPS) << "fps" << endl;
 
     // start playing
     cout << "Start playing" << endl;
