@@ -6,6 +6,19 @@ Tested development platforms:
 
 On both platforms OpenCV is built from sources and installed into **/opt/opencv**.
 
+To build examples use these commands:
+
+    $ mkdir build && cd build
+    $ OPENCV_INSTALL_DIR="/opt/opencv" cmake -G "Unix Makefiles" ..
+    $ make
+
+To run examples use:
+
+    msys2:
+
+        $ export PATH=/opt/opencv/x86/mingw/bin:$PATH 
+        $ ./program.exe
+
 ## 01. Hello World
 
 What illustrates:
@@ -14,8 +27,4 @@ What illustrates:
 * getting run-time version (where possible)
 * printing build information
 
-To build use these commands:
 
-    $ mkdir build && cd build
-    $ OPENCV_INSTALL_DIR="/opt/opencv" cmake -G "Unix Makefiles" ..
-    $ make
